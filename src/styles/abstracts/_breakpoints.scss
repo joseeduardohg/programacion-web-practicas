@@ -1,0 +1,15 @@
+@use 'functions' as *;
+
+$breakpoints-desktop-first: (
+  very-small: em(320),
+  small: em(480),
+  medium: em(768),
+  large: em(1024),
+);
+
+$breakpoints-mobile-first: (
+  very-small: em(321),
+  small: em(481),
+  medium: em(769),
+  large: em(1025),
+);

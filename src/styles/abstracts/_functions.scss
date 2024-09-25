@@ -1,0 +1,17 @@
+@use 'sass:math';
+
+@function rem($value, $pg: 16) {
+  @if not math.is-unitless($value) {
+    @error "The $value property needs to be unitless.";
+  }
+
+  @return math.div($value, $pg) * 1rem;
+}
+
+@function em($value, $pg: 16) {
+  @if not math.is-unitless($value) {
+    @error "The $value property needs to be unitless.";
+  }
+
+  @return math.div($value, $pg) * 1em;
+}
