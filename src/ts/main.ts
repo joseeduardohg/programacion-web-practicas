@@ -76,3 +76,9 @@ jane.email = 'jane.doe@example.com';
 // JSON (JavaScript Object Notation)
 const json = JSON.stringify(jane);
 console.log(json);
+
+// Seleccionar un elemento del DOM
+const title: HTMLHeadingElement = document.getElementById(
+  'title',
+) as HTMLHeadingElement;
+title.innerText = 'Sí funciona';
