@@ -25,15 +25,21 @@ console.log(isOk);
 
 // Arrays
 const fruits: string[] = ['apple', 'banana', 'orange'];
-fruits.push('watermelon');
-const lastFruit = fruits.pop();
-fruits[0] = 'kiwi';
-
 console.log(fruits);
-console.log('second fruit', fruits[3]);
-console.log('last fruit:', lastFruit);
 
-function foo(...args: any[]) {
+fruits.push('watermelon');
+console.log(fruits);
+
+const lastFruit = fruits.pop();
+console.log('last fruit:', lastFruit);
+console.log(fruits);
+
+console.log('original first fruit:', fruits[0]);
+fruits[0] = 'kiwi';
+console.log('new first fruit:', fruits[0]);
+console.log(fruits);
+
+function foo(...args: unknown[]) {
   console.log(args);
 }
 
@@ -42,9 +48,13 @@ function bar(a: number, b: number) {
 }
 
 console.log(foo(1, 2.5, 'hello', true, [1, 2, 3], { name: 'Jane' }));
-console.log(bar(...[1, 2]));
+console.log(bar(...[1, 2])); // bar(1, 2);
 
 // Objetos
+type Message = string;
+const message1: Message = 'Hello World';
+console.log(message1);
+
 type Person = {
   name: string;
   lastName: string;
@@ -74,11 +84,27 @@ console.log(jane.age);
 jane.email = 'jane.doe@example.com';
 
 // JSON (JavaScript Object Notation)
+// GET /tracks/1
 const json = JSON.stringify(jane);
 console.log(json);
 
 // Seleccionar un elemento del DOM
-const title: HTMLHeadingElement = document.getElementById(
-  'title',
+const title: HTMLHeadingElement = document.querySelector(
+  '.title',
 ) as HTMLHeadingElement;
 title.innerText = 'Sí funciona';
+
+const input: HTMLInputElement = document.querySelector(
+  'input',
+) as HTMLInputElement;
+input.addEventListener('change', (event) => {
+  event.preventDefault();
+  console.log(input.value);
+});
+
+const button: HTMLButtonElement = document.querySelector(
+  'button',
+) as HTMLButtonElement;
+button.addEventListener('click', (event) => {
+  console.log('Button clicked');
+});
