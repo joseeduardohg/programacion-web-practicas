@@ -5,12 +5,3 @@
     --clr-#{$color}: #{$value};
   }
 }
-
-html,
-body {
-  font-family: Poppins;
-}
-
-h1 {
-  color: var(--clr-primary);
-}

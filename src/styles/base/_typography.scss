@@ -1,0 +1,31 @@
+@use '../abstracts/' as *;
+
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+// @import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
+
+$fredoka: 'Fredoka', sans-serif;
+$pacifico: 'Pacifico', cursive;
+// $quicksand: 'Quicksand', sans-serif;
+
+html,
+body {
+  font-family: $fredoka;
+  font-size: map-get($map: $font-sizes, $key: md);
+  font-style: normal;
+  font-weight: 400;
+}
+
+h1 {
+  font-family: $pacifico;
+  font-size: map-get($map: $font-sizes, $key: xl);
+  font-style: normal;
+  font-weight: 500;
+}
+
+h2 {
+  font-family: $pacifico;
+  font-size: map-get($map: $font-sizes, $key: lg);
+  font-style: normal;
+  font-weight: 500;
+}
