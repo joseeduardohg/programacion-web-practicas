@@ -13,49 +13,62 @@
         <!-- Game description -->
         <!-- game-description--hidden -->
         <p class="game-description">
-          Tendrás que adivinar el número que estoy pensando. <br />
-          ¿Quieres jugar?
+          Tendrás que adivinar el número que estoy pensando.
         </p>
 
         <!-- Difficulties description and selection -->
-        <!-- difficulties--hidden -->
-        <div class="difficulties">
-          <div class="difficulties__info">
-            <h2 class="difficulties__title">Dificultades</h2>
+        <!-- difficulty--hidden -->
+        <div class="difficulty">
+          <div class="difficulty__info">
+            <h2 class="difficulty__title">Dificultades</h2>
 
-            <ul class="difficulties__list">
-              <li class="difficulties__item">
-                <span class="difficulties__difficulty">Fácil</span> - Rango de 1
-                a 100
+            <ul class="difficulty__list">
+              <li class="difficulty__item">
+                <span class="difficulty__difficulty">Fácil</span> - Rango de 1 a
+                100
               </li>
-              <li class="difficulties__item">
-                <span class="difficulties__difficulty">Medio</span> - Rango de 1
-                a 1000
+              <li class="difficulty__item">
+                <span class="difficulty__difficulty">Medio</span> - Rango de 1 a
+                1000
               </li>
-              <li class="difficulties__item">
-                <span class="difficulties__difficulty">Difícil</span> - Rango de
-                1 a 5000
+              <li class="difficulty__item">
+                <span class="difficulty__difficulty">Difícil</span> - Rango de 1
+                a 5000
               </li>
             </ul>
           </div>
 
-          <div class="difficulties__pills">
-            <button class="pill" data-difficulty="easy">Fácil</button>
-            <button class="pill" data-difficulty="medium">Medio</button>
-            <button class="pill" data-difficulty="hard">Difícil</button>
+          <div class="difficulty__pills">
+            <button
+              id="pill-easy"
+              class="pill pill--selected"
+              data-difficulty="easy"
+            >
+              Fácil
+            </button>
+            <button id="pill-medium" class="pill" data-difficulty="medium">
+              Medio
+            </button>
+            <button id="pill-hard" class="pill" data-difficulty="hard">
+              Difícil
+            </button>
           </div>
 
-          <button class="button">Jugar</button>
+          <button id="start-button" class="button">Jugar</button>
         </div>
 
         <!-- Game -->
         <!-- game--show -->
         <div class="game">
           <p class="game__difficulty">
-            Dificultad: <span class="game__selected-difficulty"></span>
+            Dificultad:
+            <span
+              id="current-difficulty"
+              class="game__selected-difficulty"
+            ></span>
           </p>
 
-          <p class="game__hint">Es más alto</p>
+          <p class="game__hint"></p>
 
           <div class="game__form">
             <input
@@ -65,11 +78,14 @@
               id="guess"
               class="game__guess"
             />
-            <button class="button">Adivinar</button>
+
+            <button id="submit" class="button">Adivinar</button>
           </div>
 
           <p class="game__guesses">
-            Llevas <span class="game__guesses-count"></span> intento(s)
+            Llevas
+            <span id="guesses-count" class="game__guesses-count"></span>
+            intento(s)
           </p>
         </div>
 
@@ -82,7 +98,7 @@
             Adivinaste el número en 10 intentos.
           </p>
 
-          <button class="button">Volver a jugar</button>
+          <button id="restart-button" class="button">Volver a jugar</button>
         </div>
       </main>
     </div>
