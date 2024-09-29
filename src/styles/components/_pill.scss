@@ -1,7 +1,6 @@
 @use '../abstracts' as *;
 
 .pill {
-  $font-size: map-get($font-sizes, xs);
   $font-weight: 500;
   $primary: map-get($colors, primary);
 
@@ -9,9 +8,8 @@
   padding: rem(8) rem(16);
   border-radius: rem(16);
   border: rem(3) solid rgba($primary, 0.25);
-  font-size: $font-size;
   font-weight: $font-weight;
-  text-transform: uppercase;
+  text-transform: lowercase;
   letter-spacing: rem(0.8);
   cursor: pointer;
   transition: background-color 0.2s;
