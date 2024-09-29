@@ -11,14 +11,12 @@
 
       <main class="main">
         <!-- Game description -->
-        <!-- game-description--hidden -->
         <p class="game-description">
           Tendrás que adivinar el número que estoy pensando.
         </p>
 
         <!-- Difficulties description and selection -->
-        <!-- difficulty--hidden -->
-        <div class="difficulty">
+        <section class="difficulty">
           <div class="difficulty__info">
             <h2 class="difficulty__title">Dificultades</h2>
 
@@ -55,11 +53,10 @@
           </div>
 
           <button id="start-button" class="button">Jugar</button>
-        </div>
+        </section>
 
         <!-- Game -->
-        <!-- game--show -->
-        <div class="game">
+        <section class="game">
           <p class="game__difficulty">
             Dificultad:
             <span
@@ -87,19 +84,16 @@
             <span id="guesses-count" class="game__guesses-count"></span>
             intento(s)
           </p>
-        </div>
+        </section>
 
         <!-- Game result -->
-        <!-- game-result--show -->
-        <div class="game-result">
-          <h2 class="game-result__title">¡Felicidades!</h2>
+        <section class="game-result">
+          <h2 class="game-result__title"></h2>
 
-          <p class="game-result__message">
-            Adivinaste el número en 10 intentos.
-          </p>
+          <p class="game-result__message"></p>
 
           <button id="restart-button" class="button">Volver a jugar</button>
-        </div>
+        </section>
       </main>
     </div>
   </body>
