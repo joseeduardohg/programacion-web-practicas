@@ -5,3 +5,9 @@
     --clr-#{$color}: #{$value};
   }
 }
+
+html,
+body {
+  background-color: var(--clr-background);
+  color: var(--clr-on-background);
+}
