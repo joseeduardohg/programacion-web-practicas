@@ -5,5 +5,86 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Guess The Number</title>
   </head>
-  <body></body>
+  <body>
+    <div class="root">
+      <h1 class="game-title">Adivina el Número</h1>
+
+      <main class="main">
+        <!-- Game description -->
+        <!-- game-description--hidden -->
+        <p class="game-description">
+          Tendrás que adivinar el número que estoy pensando. <br />
+          ¿Quieres jugar?
+        </p>
+
+        <!-- Difficulties description and selection -->
+        <!-- difficulties--hidden -->
+        <div class="difficulties">
+          <div class="difficulties__info">
+            <h2 class="difficulties__title">Dificultades</h2>
+
+            <ul class="difficulties__list">
+              <li class="difficulties__item">
+                <span class="difficulties__difficulty">Fácil</span> - Rango de 1
+                a 100
+              </li>
+              <li class="difficulties__item">
+                <span class="difficulties__difficulty">Medio</span> - Rango de 1
+                a 1000
+              </li>
+              <li class="difficulties__item">
+                <span class="difficulties__difficulty">Difícil</span> - Rango de
+                1 a 5000
+              </li>
+            </ul>
+          </div>
+
+          <div class="difficulties__pills">
+            <button class="pill" data-difficulty="easy">Fácil</button>
+            <button class="pill" data-difficulty="medium">Medio</button>
+            <button class="pill" data-difficulty="hard">Difícil</button>
+          </div>
+
+          <button class="button">Jugar</button>
+        </div>
+
+        <!-- Game -->
+        <!-- game--show -->
+        <div class="game">
+          <p class="game__difficulty">
+            Dificultad: <span class="game__selected-difficulty"></span>
+          </p>
+
+          <p class="game__hint">Es más alto</p>
+
+          <div class="game__form">
+            <input
+              type="number"
+              placeholder="Ingresa tu estimación..."
+              name="guess"
+              id="guess"
+              class="game__guess"
+            />
+            <button class="button">Adivinar</button>
+          </div>
+
+          <p class="game__guesses">
+            Llevas <span class="game__guesses-count"></span> intento(s)
+          </p>
+        </div>
+
+        <!-- Game result -->
+        <!-- game-result--show -->
+        <div class="game-result">
+          <h2 class="game-result__title">¡Felicidades!</h2>
+
+          <p class="game-result__message">
+            Adivinaste el número en 10 intentos.
+          </p>
+
+          <button class="button">Volver a jugar</button>
+        </div>
+      </main>
+    </div>
+  </body>
 </html>
