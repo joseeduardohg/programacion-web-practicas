@@ -6,7 +6,6 @@ let attempts: number = 1;
 let maxNumber = 0;
 let randomNumber = 0;
 let difficultyLevel: 'easy' | 'medium' | 'hard' = 'easy';
-// let isGameRunning: boolean;
 
 // Show/Hide elements
 const gameDescription: HTMLParagraphElement = document.querySelector(
@@ -120,12 +119,23 @@ submitButton.addEventListener('click', () => {
   }
 
   incrementAttempts();
+  gameHint.textContent =
+    parseInt(playerGuess.value) > randomNumber
+      ? 'El número es más pequeño'
+      : 'El número es más grande';
+  if (!gameHint.classList.contains('game__hint--show'))
+    gameHint.classList.add('game__hint--show');
+
   playerGuess.value = '';
 });
 
 const playerGuess: HTMLInputElement = document.querySelector(
   '#guess',
 ) as HTMLInputElement;
+
+const gameHint: HTMLParagraphElement = document.querySelector(
+  '.game__hint',
+) as HTMLParagraphElement;
 
 // Functions
 function hasWin(): boolean {
@@ -161,6 +171,7 @@ function restartGame() {
   easyPill.classList.add('pill--selected');
   mediumPill.classList.remove('pill--selected');
   hardPill.classList.remove('pill--selected');
+  gameHint.classList.remove('game__hint--show');
 }
 
 function generateRandomNumber() {
