@@ -1,0 +1,26 @@
+@use '../abstracts' as *;
+
+.pill {
+  $font-size: map-get($font-sizes, xs);
+  $font-weight: 500;
+  $primary: map-get($colors, primary);
+
+  display: inline-block;
+  padding: rem(8) rem(16);
+  border-radius: rem(16);
+  border: rem(3) solid rgba($primary, 0.25);
+  font-size: $font-size;
+  font-weight: $font-weight;
+  text-transform: uppercase;
+  letter-spacing: rem(0.8);
+  margin-right: rem(8);
+  margin-bottom: rem(8);
+  cursor: pointer;
+  transition: background-color 0.2s;
+
+  &--selected {
+    $primary: map-get($colors, primary);
+
+    background-color: rgba($primary, 0.4);
+  }
+}

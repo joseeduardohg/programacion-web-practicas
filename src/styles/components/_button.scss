@@ -1,0 +1,23 @@
+@use '../abstracts' as *;
+
+.button {
+  $font-weight: 600;
+  $primary: map-get($colors, primary);
+  $on-primary: map-get($colors, on-primary);
+
+  text-align: center;
+  padding: rem(8) rem(16);
+  border: rem(3) solid rgba($primary, 0.3);
+  border-radius: rem(16);
+  background-color: $primary;
+  color: $on-primary;
+  font-weight: $font-weight;
+  cursor: pointer;
+  transition: background-color 0.3s, color 0.3s;
+
+  &:hover {
+    $primary: map-get($colors, primary);
+
+    background-color: rgba($primary, 0.6);
+  }
+}
