@@ -11,7 +11,7 @@ $pacifico: 'Pacifico', cursive;
 html,
 body {
   font-family: $fredoka;
-  font-size: map-get($map: $font-sizes, $key: md);
+  font-size: map-get($map: $font-sizes, $key: sm);
   font-style: normal;
   font-weight: 400;
 }
