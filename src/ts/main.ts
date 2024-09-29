@@ -44,8 +44,6 @@ easyPill.addEventListener('click', () => {
   easyPill.classList.add('pill--selected');
   mediumPill.classList.remove('pill--selected');
   hardPill.classList.remove('pill--selected');
-
-  console.log(difficultyLevel);
 });
 
 const mediumPill: HTMLButtonElement = document.querySelector(
@@ -60,8 +58,6 @@ mediumPill.addEventListener('click', () => {
   easyPill.classList.remove('pill--selected');
   mediumPill.classList.add('pill--selected');
   hardPill.classList.remove('pill--selected');
-
-  console.log(difficultyLevel);
 });
 
 const hardPill: HTMLButtonElement = document.querySelector(
@@ -76,8 +72,6 @@ hardPill.addEventListener('click', () => {
   easyPill.classList.remove('pill--selected');
   mediumPill.classList.remove('pill--selected');
   hardPill.classList.add('pill--selected');
-
-  console.log(difficultyLevel);
 });
 
 // Displays
@@ -144,8 +138,6 @@ function hasWin(): boolean {
 }
 
 function showWin() {
-  console.log('You win!');
-
   gameResultTitle.textContent = '¡Felicitaciones!';
   gameResultMessage.textContent = `¡Adivinaste el número en ${attempts} intentos!`;
 
