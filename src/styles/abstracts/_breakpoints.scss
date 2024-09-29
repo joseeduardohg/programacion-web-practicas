@@ -1,8 +1,9 @@
 @use 'functions' as *;
 
 $breakpoints: (
-  xs: rem(320),
-  sm: rem(480),
-  md: rem(768),
-  lg: rem(1024),
+  // I sum 1 to the value to avoid the same value in the media query
+  // xs: rem(321),
+  sm: rem(481),
+  md: rem(769),
+  lg: rem(1025)
 );

@@ -1,10 +1,17 @@
-@use '../abstracts/' as *;
+@use '../abstracts' as *;
 
 .root {
   padding: rem(16) rem(40);
   display: flex;
   flex-direction: column;
   gap: rem(16);
+
+  @include mq(sm) {
+    max-width: rem(510);
+    width: 100%;
+    padding: rem(32) rem(64);
+    margin-inline: auto;
+  }
 }
 
 .game-title {
@@ -89,6 +96,10 @@
     display: flex;
     flex-direction: column;
     gap: rem(8);
+
+    @include mq(sm) {
+      flex-direction: row;
+    }
   }
 
   &__guess {

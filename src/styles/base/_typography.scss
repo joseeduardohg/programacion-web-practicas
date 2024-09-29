@@ -11,21 +11,33 @@ $pacifico: 'Pacifico', cursive;
 html,
 body {
   font-family: $fredoka;
-  font-size: map-get($map: $font-sizes, $key: sm);
+  font-size: map-get($font-sizes, sm);
   font-style: normal;
   font-weight: 400;
+
+  @include mq(sm) {
+    font-size: map-get($font-sizes, md);
+  }
 }
 
 h1 {
   font-family: $pacifico;
-  font-size: map-get($map: $font-sizes, $key: xl);
+  font-size: map-get($font-sizes, xl);
   font-style: normal;
   font-weight: 500;
+
+  @include mq(sm) {
+    font-size: map-get($font-sizes, xxl);
+  }
 }
 
 h2 {
   font-family: $pacifico;
-  font-size: map-get($map: $font-sizes, $key: lg);
+  font-size: map-get($font-sizes, lg);
   font-style: normal;
   font-weight: 500;
+
+  @include mq(sm) {
+    font-size: map-get($font-sizes, xl);
+  }
 }
