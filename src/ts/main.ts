@@ -1,9 +1,12 @@
 import '../styles/main.scss';
+import { randomRange } from './utils/random';
 
 // Game variables
-// let randomNumber: number;
-// let attempts: number;
+let attempts: number = 1;
 let difficultyLevel: 'easy' | 'medium' | 'hard' = 'easy';
+let maxNumber =
+  difficultyLevel === 'easy' ? 100 : difficultyLevel === 'medium' ? 1000 : 5000;
+let randomNumber = Math.floor(randomRange(1, maxNumber));
 // let isGameRunning: boolean;
 
 // Show/Hide elements
@@ -17,9 +20,17 @@ const difficulty: HTMLDivElement = document.querySelector(
 
 const game: HTMLDivElement = document.querySelector('.game') as HTMLDivElement;
 
-// const gameResult: HTMLDivElement = document.querySelector(
-//   '.game-result',
-// ) as HTMLDivElement;
+const gameResult: HTMLDivElement = document.querySelector(
+  '.game-result',
+) as HTMLDivElement;
+
+const gameResultTitle: HTMLHeadingElement = document.querySelector(
+  '.game-result__title',
+) as HTMLHeadingElement;
+
+const gameResultMessage: HTMLParagraphElement = document.querySelector(
+  '.game-result__message',
+) as HTMLParagraphElement;
 
 // Pills
 const easyPill: HTMLButtonElement = document.querySelector(
@@ -68,13 +79,15 @@ hardPill.addEventListener('click', () => {
 });
 
 // Displays
-// const currentDifficulty: HTMLSpanElement = document.querySelector(
-//   '#current-difficulty',
-// ) as HTMLSpanElement;
+const currentDifficulty: HTMLSpanElement = document.querySelector(
+  '#current-difficulty',
+) as HTMLSpanElement;
+currentDifficulty.textContent = difficultyLevel;
 
-// const currentAttempts: HTMLSpanElement = document.querySelector(
-//   '#guesses-count',
-// ) as HTMLSpanElement;
+const currentAttempts: HTMLSpanElement = document.querySelector(
+  '#guesses-count',
+) as HTMLSpanElement;
+currentAttempts.textContent = attempts.toString();
 
 // Buttons
 const startButton: HTMLButtonElement = document.querySelector(
@@ -84,6 +97,8 @@ startButton.addEventListener('click', () => {
   gameDescription.classList.toggle('game-description--hidden');
   difficulty.classList.toggle('difficulty--hidden');
   game.classList.toggle('game--show');
+
+  currentDifficulty.textContent = difficultyLevel;
 });
 
 const restartButton: HTMLButtonElement = document.querySelector(
@@ -95,12 +110,46 @@ restartButton.addEventListener('click', () => {
   game.classList.toggle('game--show');
 });
 
-// const submitButton: HTMLButtonElement = document.querySelector(
-//   '#submit',
-// ) as HTMLButtonElement;
+const submitButton: HTMLButtonElement = document.querySelector(
+  '#submit',
+) as HTMLButtonElement;
+submitButton.addEventListener('click', () => {
+  if (playerGuess.value === '') return;
 
-// const playerGuess: HTMLInputElement = document.querySelector(
-//   '#guess',
-// ) as HTMLInputElement;
+  if (hasWin()) {
+    showWin();
+    return;
+  }
+
+  incrementAttempts();
+  playerGuess.value = '';
+});
+
+const playerGuess: HTMLInputElement = document.querySelector(
+  '#guess',
+) as HTMLInputElement;
 
 // Functions
+function hasWin(): boolean {
+  const playerNumber = parseInt(playerGuess.value);
+  console.log(randomNumber, playerNumber);
+
+  if (playerNumber === randomNumber) return true;
+
+  return false;
+}
+
+function showWin() {
+  console.log('You win!');
+
+  gameResultTitle.textContent = '¡Felicitaciones!';
+  gameResultMessage.textContent = `¡Adivinaste el número en ${attempts} intentos!`;
+
+  gameResult.classList.toggle('game-result--show');
+  game.classList.toggle('game--show');
+}
+
+function incrementAttempts() {
+  attempts++;
+  currentAttempts.textContent = attempts.toString();
+}
