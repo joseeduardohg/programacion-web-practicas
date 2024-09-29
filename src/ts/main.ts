@@ -3,10 +3,9 @@ import { randomRange } from './utils/random';
 
 // Game variables
 let attempts: number = 1;
+let maxNumber = 0;
+let randomNumber = 0;
 let difficultyLevel: 'easy' | 'medium' | 'hard' = 'easy';
-let maxNumber =
-  difficultyLevel === 'easy' ? 100 : difficultyLevel === 'medium' ? 1000 : 5000;
-let randomNumber = Math.floor(randomRange(1, maxNumber));
 // let isGameRunning: boolean;
 
 // Show/Hide elements
@@ -40,6 +39,7 @@ easyPill.addEventListener('click', () => {
   if (difficultyLevel === 'easy') return;
 
   difficultyLevel = 'easy';
+  currentDifficulty.textContent = difficultyLevel;
 
   easyPill.classList.add('pill--selected');
   mediumPill.classList.remove('pill--selected');
@@ -55,6 +55,7 @@ mediumPill.addEventListener('click', () => {
   if (difficultyLevel === 'medium') return;
 
   difficultyLevel = 'medium';
+  currentDifficulty.textContent = difficultyLevel;
 
   easyPill.classList.remove('pill--selected');
   mediumPill.classList.add('pill--selected');
@@ -70,6 +71,7 @@ hardPill.addEventListener('click', () => {
   if (difficultyLevel === 'hard') return;
 
   difficultyLevel = 'hard';
+  currentDifficulty.textContent = difficultyLevel;
 
   easyPill.classList.remove('pill--selected');
   mediumPill.classList.remove('pill--selected');
@@ -94,20 +96,22 @@ const startButton: HTMLButtonElement = document.querySelector(
   '#start-button',
 ) as HTMLButtonElement;
 startButton.addEventListener('click', () => {
+  generateRandomNumber();
+
   gameDescription.classList.toggle('game-description--hidden');
   difficulty.classList.toggle('difficulty--hidden');
   game.classList.toggle('game--show');
-
-  currentDifficulty.textContent = difficultyLevel;
 });
 
 const restartButton: HTMLButtonElement = document.querySelector(
   '#restart-button',
 ) as HTMLButtonElement;
 restartButton.addEventListener('click', () => {
+  restartGame();
+
   gameDescription.classList.toggle('game-description--hidden');
   difficulty.classList.toggle('difficulty--hidden');
-  game.classList.toggle('game--show');
+  gameResult.classList.toggle('game-result--show');
 });
 
 const submitButton: HTMLButtonElement = document.querySelector(
@@ -152,4 +156,28 @@ function showWin() {
 function incrementAttempts() {
   attempts++;
   currentAttempts.textContent = attempts.toString();
+}
+
+function restartGame() {
+  attempts = 1;
+  difficultyLevel = 'easy';
+
+  playerGuess.value = '';
+  currentAttempts.textContent = attempts.toString();
+  currentDifficulty.textContent = difficultyLevel;
+
+  easyPill.classList.add('pill--selected');
+  mediumPill.classList.remove('pill--selected');
+  hardPill.classList.remove('pill--selected');
+}
+
+function generateRandomNumber() {
+  maxNumber =
+    difficultyLevel === 'easy'
+      ? 100
+      : difficultyLevel === 'medium'
+      ? 1000
+      : 5000;
+
+  randomNumber = Math.floor(randomRange(1, maxNumber));
 }
