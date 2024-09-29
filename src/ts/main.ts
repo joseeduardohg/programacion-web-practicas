@@ -140,7 +140,6 @@ const gameHint: HTMLParagraphElement = document.querySelector(
 // Functions
 function hasWin(): boolean {
   const playerNumber = parseInt(playerGuess.value);
-  console.log(randomNumber, playerNumber);
 
   if (playerNumber === randomNumber) return true;
 
